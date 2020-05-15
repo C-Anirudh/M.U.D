@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
     chrome.storage.local.get(['blockedURL'],function(u) {
         if (typeof u.blockedURL !== 'undefined' && u.blockedURL.length !== 0) {
             var html = "";
@@ -15,20 +15,8 @@ $(function(){
         }
         
     });
-    /*$('#saveLimit').click(function(){
-        var limit = $('#limit').val();
-        if(limit){
-            chrome.storage.sync.set({'limit': limit},function(){
-                close();
-            });
-        }
-    });*/
-    /*chrome.tabs.getSelected(null, tab => {
-        var code = 'window.location.reload();';
-        chrome.tabs.executeScript(tab.id, { code: code });
-    });*/
 
-    $('#resetList').click(function(){
+    $('#resetList').click(function() {
         chrome.storage.local.set({'blockedURL': []},function() {
             var notifOptions = {
                 type: 'basic',
@@ -40,4 +28,9 @@ $(function(){
             window.location.reload();
         });
     });
+
+    $('#checkURLBtn').click(function() {
+        var html = '<div class="card-footer text-success">Safe</div>' 
+        document.getElementById("URLStatus").innerHTML = html;
+    })
 });

@@ -8,19 +8,40 @@
     <body>
         <div class="container">
             <h1 class="text-center">Options page</h1>
-            <h2 class="text-center">Blocked URLs</h2>
             <br>
-            <div class="text-right">
-                <!-- <button type="submit" id="" class="btn btn-primary">Dummy</button> -->
-                <button type="submit" id="resetList" class="btn btn-danger">Clear List</button>
+            <div class="card text-center">
+                <div class="card-header bg-dark text-white">
+                    Check URL
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Enter Website URL:</label>
+                            <input type="url" class="form-control" id="URL" required>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-primary" id="checkURLBtn">
+                                Check URL
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div id="URLStatus">
+                </div>
             </div>
+            <br>
+            <h2 class="text-center">Blocked URLs</h2>
             <br>
             <table class="table">
                 <thead class="thead-dark">
                     <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">URL</th>
-                    <!-- <th scope="col">Action</th> -->
+                        <th scope="col">#</th>
+                        <th scope="col">URL</th>
+                        <th scope="col">
+                            <div class="text-right">
+                                <button type="submit" id="resetList" class="btn btn-danger">Clear List</button>
+                            </div>
+                        </th>
                     </tr>
                 </thead>
                 <tbody id="block-list">

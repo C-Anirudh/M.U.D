@@ -21,7 +21,9 @@
     "content_scripts": [
         {
           "matches": ["http://*/*", "https://*/*"],
-          "js": ["contentScript.js"]
+          "run_at": "document_start",
+          "js": ["contentScript.js"],
+          "css": ["contentScript.css"]
         }
     ],
     "permissions": [
