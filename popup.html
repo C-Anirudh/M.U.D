@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>M.U.D</title>
+        <script src="../assets/js/jquery-3.3.1.min.js"></script>
+        <script src="../popup.js"></script>
+        <link rel="stylesheet" href="../assets/css/popup.css">
+        <link rel="stylesheet" href="../assets//css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    </body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="">
+                        <div class="popup-header text-center">
+                            <h2 class="popup-title">Malicious URL Detector</h2> 
+                        </div>
+                        <hr>
+                        <div class="popup-body">
+                            <form>
+                                <div class="form-group">
+                                    <label>Current URL:</label>
+                                    <input type="text" class="form-control" id="currentURL" >
+                                </div>
+                                <div class="form-group">
+                                    <label>Status:</label>
+                                    <span id="currentURLStatus"></span>
+                                </div>
+                                <div class="text-center">
+                                    <button class="btn btn-danger" id="blockURLBtn">
+                                        Block URL
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <br>
+                        <div class="text-center">
+                            <a target="_blank" href="chrome-extension://aaenligjhjhabmecfapjdkdjkgbmnhkf/options.html">Go to Options page.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
