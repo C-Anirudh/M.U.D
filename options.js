@@ -11,7 +11,7 @@ $(function() {
             }
             document.getElementById("block-list").innerHTML = html;
         } else {
-            document.getElementById('block-list').innerHTML = '<tr><th scope=\"row\"></th><td>No URLs blocked</td></tr>';
+            document.getElementById('block-list').innerHTML = '<tr><th scope=\"row\"></th><td>No URLs blocked</td><td></td></tr>';
         }
         
     });
