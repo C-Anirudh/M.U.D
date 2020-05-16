@@ -8,13 +8,15 @@ var callback = (details) => {
         result = arr[0] + "\/\/" + arr[2] + "/*";
         console.log(result + " checkpoint-2");
         chrome.storage.local.get(['blockedURL'],function(u){
-            if (u.blockedURL.includes(result)) {
-                console.log("Should be blocked");
-                chrome.tabs.sendMessage(tabs[0].id, {msg:"block"}, function(response) {
-                    if(response.type == "success"){
-                        console.log('Blocked successfully');
-                    }
-                });
+            if (u.blockedURL !== undefined) {
+                if (u.blockedURL.includes(result)) {
+                    console.log("Should be blocked");
+                    chrome.tabs.sendMessage(tabs[0].id, {msg:"block"}, function(response) {
+                        if(response.type == "success"){
+                            console.log('Blocked successfully');
+                        }
+                    });
+                }
             }
         });
     });
