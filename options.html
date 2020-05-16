@@ -3,7 +3,8 @@
     <head>    
         <title>M.U.D Options</title>
         <script src="../assets/js/jquery-3.3.1.min.js"></script>
-        <link rel="stylesheet" href="../assets//css/bootstrap.css">
+        <link rel="stylesheet" href="./assets/css/options.css">
+        <link rel="stylesheet" href="./assets/css/bootstrap.css">
     </head>
     <body>
         <div class="container">
@@ -14,7 +15,7 @@
                     Check URL
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form action="#">
                         <div class="form-group">
                             <label>Enter Website URL:</label>
                             <input type="url" class="form-control" id="URL" required>
@@ -30,9 +31,21 @@
                 </div>
             </div>
             <br>
+            <hr>
             <h2 class="text-center">Blocked URLs</h2>
             <br>
-            <table class="table">
+            <form action="#">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="url" class="form-control" placeholder="Enter URL to be added to block list" id="URLadd">
+                        <span class="input-group-btn">
+                            <button id="addURLBtn" class="btn btn-primary" type="submit">Add</button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>

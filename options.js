@@ -7,7 +7,7 @@ $(function() {
                 html+="<th scope=\"row\">"+(i+1)+"</th>"
                 html+="<td>"+u.blockedURL[i]+"</td>";
                 /*html+="<td><button class=\"btn btn-success\" id=\"unblockBtn\" name=\""+i+"\" onclick>Unblock</button></td>";*/
-                html+="</tr>";
+                html+="<td></td></tr>";
             }
             document.getElementById("block-list").innerHTML = html;
         } else {
@@ -30,7 +30,35 @@ $(function() {
     });
 
     $('#checkURLBtn').click(function() {
-        var html = '<div class="card-footer text-success">Safe</div>' 
-        document.getElementById("URLStatus").innerHTML = html;
-    })
+        var html;
+        var currURL = document.getElementById('URL').value;
+        if (currURL !== undefined && currURL !== "") {
+            var arr = currURL.split('/');
+            var arr2 = arr[arr.length-1].split('.');
+            if (arr2.includes('exe')) {
+                html = '<div class="card-footer text-danger">Un-Safe</div>';
+            } else {
+                html = '<div class="card-footer text-success">Safe</div>';
+            }
+            document.getElementById("URLStatus").innerHTML = html;
+        }
+    });
+
+    $('#addURLBtn').click(function() {
+        var currURL = document.getElementById('URLadd').value;
+        chrome.storage.local.get(['blockedURL'],function(u) {
+            var currList = [];
+            if (typeof u.blockedURL !== 'undefined') {
+                currList = u.blockedURL.slice(0); 
+            }
+            var arr = currURL.split('/');
+            var result = arr[0] + "\/\/" + arr[2] + "/*";
+            if (!currList.includes(result)) {
+                currList.push(result);
+            }
+            chrome.storage.local.set({'blockedURL': currList},function(){
+                window.location.reload();
+            });
+        });
+    });
 });

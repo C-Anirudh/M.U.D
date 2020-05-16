@@ -8,8 +8,15 @@ $(function(){
         
     chrome.tabs.query({ active: true, currentWindow: true }, () => {
         status = document.getElementById('currentURLStatus');
-        status.innerHTML = "Safe";
-        status.style.color = "green";
+        var arr = currURL.value.split('/');
+        var arr2 = arr[arr.length-1].split('.');
+        if (arr2.includes('exe')) {
+            status.innerHTML = "Un-Safe";
+            status.style.color = "red";
+        } else {
+            status.innerHTML = "Safe";
+            status.style.color = "green";
+        }        
     });
 
     chrome.storage.local.get(['blockedURL'],function(u) {
@@ -45,13 +52,6 @@ $(function(){
                 }
             }
             chrome.storage.local.set({'blockedURL': currList},function(){
-                var notifOptions = {
-                    type: 'basic',
-                    iconUrl: './assets/img/48.png',
-                    title: 'Limit Reached!',
-                    message: 'Uh oh! Looks like you\'ve reached your limit !' 
-                };
-                chrome.notifications.create('limitNotif',notifOptions);
             });
         });
     });
