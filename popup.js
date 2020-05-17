@@ -1,3 +1,4 @@
+
 $(function(){
     var currURL, status;
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
@@ -9,8 +10,11 @@ $(function(){
     chrome.tabs.query({ active: true, currentWindow: true }, () => {
         status = document.getElementById('currentURLStatus');
         var arr = currURL.value.split('/');
-        var arr2 = arr[arr.length-1].split('.');
-        if (arr2.includes('exe')) {
+        var arr2 = arr[2].split('.');
+        if (arr2[0] == "www") {
+            arr2.splice(0, 1);
+        }
+        if (blockDict.includes(arr2.join('.'))) {
             status.innerHTML = "Un-Safe";
             status.style.color = "red";
         } else {

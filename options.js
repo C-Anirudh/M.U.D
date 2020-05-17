@@ -34,8 +34,11 @@ $(function() {
         var currURL = document.getElementById('URL').value;
         if (currURL !== undefined && currURL !== "") {
             var arr = currURL.split('/');
-            var arr2 = arr[arr.length-1].split('.');
-            if (arr2.includes('exe')) {
+            var arr2 = arr[2].split('.');
+            if (arr2[0] == "www") {
+                arr2.splice(0, 1);
+            }
+            if (blockDict.includes(arr2.join('.'))) {
                 html = '<div class="card-footer text-danger">Un-Safe</div>';
             } else {
                 html = '<div class="card-footer text-success">Safe</div>';
