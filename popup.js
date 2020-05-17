@@ -59,4 +59,8 @@ $(function(){
             });
         });
     });
+
+    $("#options-page").click(function(){
+        chrome.runtime.openOptionsPage();
+    });
 });
